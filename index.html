@@ -163,18 +163,24 @@ font-size:16px;
 
 .galeria{
 display:flex;
-flex-wrap:wrap;
+overflow-x:auto;
 gap:15px;
-padding:10px;
-justify-content:center;
+padding:20px;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
+
+.galeria::-webkit-scrollbar{
+display:none;
 }
 
 .galeria img{
-width:100%;
-max-width:250px;
+flex:0 0 80%;
+max-width:300px;
 height:250px;
 object-fit:cover;
 border-radius:12px;
+scroll-snap-align:center;
 }
 /* LIGHTBOX */
 
@@ -466,6 +472,7 @@ lightbox.addEventListener("click", function(e){
   
 </body>
 </html>
+
 
 
 
