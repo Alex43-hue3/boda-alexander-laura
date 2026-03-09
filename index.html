@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander & Laura | Nuestra Boda</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#f4f1ea;
+color:#333;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* SOBRE */
+
+#sobre{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#eee;
+cursor:pointer;
+}
+
+.envelope{
+width:320px;
+height:200px;
+background:#d4b483;
+position:relative;
+transform-style:preserve-3d;
+}
+
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:#c6a56b;
+clip-path:polygon(0 0,100% 0,50% 60%);
+transform-origin:top;
+transition:1s;
+}
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552");
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+margin:10px;
+letter-spacing:3px;
+}
+
+/* SECCIONES CON FONDO DE ANILLOS */
+
+.section{
+padding:70px 20px;
+position:relative;
+background-image:linear-gradient(rgba(244,241,234,.92),rgba(244,241,234,.92)),
+url("img/anillos.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* TARJETAS */
+
+.card{
+background:white;
+max-width:650px;
+margin:auto;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+margin-bottom:40px;
+}
+
+/* BOTONES */
+
+button{
+background:#c6a56b;
+border:none;
+padding:15px 30px;
+color:white;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+button:hover{
+background:#a88b59;
+transform:scale(1.05);
+}
+
+/* HISTORIAS */
+
+.story{
+display:flex;
+overflow-x:auto;
+gap:25px;
+padding:20px;
+justify-content:center;
+}
+
+.story-card{
+min-width:240px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+overflow:hidden;
+text-align:center;
+transition:transform .4s;
+}
+
+.story-card:hover{
+transform:translateY(-10px);
+}
+
+.story-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.story-card p{
+padding:15px;
+font-size:16px;
+}
+
+/* GALERIA */
+
+.galeria{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:10px;
+justify-content:center;
+}
+
+.galeria img{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* PETALOS */
+
+.petalo{
+position:fixed;
+top:-10px;
+font-size:24px;
+animation:caer linear infinite;
+pointer-events:none;
+}
+
+@keyframes caer{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sobre" onclick="abrirInvitacion()">
+
+<div class="envelope" id="env">
+<div class="flap"></div>
+</div>
+
+<p>Abrir invitación</p>
+
+</div>
+
+<div id="contenido" style="display:none">
+
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+<h2>Nos Casamos</h2>
+<h1>Alexander & Laura</h1>
+
+<p>5 de Septiembre 2026</p>
+
+<div id="contador"></div>
+
+</section>
+
+<section class="section">
+
+<h2>Nuestra Historia</h2>
+
+<div class="story">
+
+<div class="story-card">
+<img src="img/historia1.jpg">
+<p>Nos conocimos en la preparatoria ❤️</p>
+</div>
+
+<div class="story-card">
+<img src="img/historia2.jpg">
+<p>Primer viaje que tuvimos fue al Real de Catorce ✈️</p>
+</div>
+
+<div class="story-card">
+<img src="img/historia3.jpg">
+<p>El día que pedí su mano fue un compromiso que será para toda la vida 💍</p>
+</div>
+
+<div class="story-card">
+<img src="img/historia4.jpg">
+<p>Hoy comienza nuestra vida juntos ❤️</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>Ceremonia</h2>
+
+<p>Parroquia San Juan Bautista</p>
+<p>7:00 PM</p>
+
+<button onclick="window.open('https://www.google.com/maps/search/Parroquia+San+Juan+Bautista+Cadereyta')">
+Ver ubicación
+</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>Recepción</h2>
+
+<p>Quinta Carolina</p>
+<p>8:00 PM</p>
+
+<button onclick="window.open('https://www.google.com/maps/place/Quinta+Carolina/@25.5631905,-100.0043437,4153m/data=!3m1!1e3!4m6!3m5!1s0x8662db00853b0297:0xe1659282d1867219!8m2!3d25.5553083!4d-99.9966013!16s%2Fg%2F11fb3kt3t3?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D')">
+Ver ubicación
+</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>Galería</h2>
+
+<div class="galeria">
+
+<img src="img/historia1.jpg">
+<img src="img/historia1.jpg">
+<img src="img/historia2.jpg">
+<img src="img/historia3.jpg">
+<img src="img/historia4.jpg">
+
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>Confirmar asistencia</h2>
+
+<button onclick="window.open('https://wa.me/528100000000?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Alexander%20y%20Laura')">
+Confirmar por WhatsApp
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+/* ABRIR INVITACION */
+
+function abrirInvitacion(){
+
+document.getElementById("env").classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("sobre").style.display="none";
+document.getElementById("contenido").style.display="block";
+
+let musica = document.getElementById("musica");
+
+musica.currentTime = 0;
+
+musica.play().catch(()=>{});
+
+confetti({
+particleCount:200,
+spread:120
+});
+
+},700)
+
+}
+
+/* CONTADOR */
+
+var fecha=new Date("Sept 5, 2026 19:00:00").getTime();
+
+setInterval(function(){
+
+var ahora=new Date().getTime();
+
+var distancia=fecha-ahora;
+
+var dias=Math.floor(distancia/(1000*60*60*24));
+
+var horas=Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+
+var minutos=Math.floor((distancia%(1000*60*60))/(1000*60));
+
+var segundos=Math.floor((distancia%(1000*60))/1000);
+
+
+document.getElementById("contador").innerHTML=
+dias+"d "+horas+"h "+minutos+"m "+segundos+"s ";
++" días para la boda";
+
+},1000);
+
+/* PETALOS */
+
+for(let i=0;i<25;i++){
+
+let p=document.createElement("div");
+
+p.innerHTML="🌸";
+
+p.className="petalo";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(p);
+
+}
+
+</script>
+
+</body>
+</html>
