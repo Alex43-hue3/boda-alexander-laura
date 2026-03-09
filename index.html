@@ -126,14 +126,15 @@ transform:scale(1.05);
 
 .story{
 display:flex;
-overflow-x:auto;
+flex-wrap:wrap;
 gap:25px;
 padding:20px;
 justify-content:center;
 }
 
 .story-card{
-min-width:240px;
+width:100%;
+max-width:260px;
 background:white;
 border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
@@ -157,18 +158,20 @@ padding:15px;
 font-size:16px;
 }
 
+
 /* GALERIA */
 
 .galeria{
 display:flex;
-overflow-x:auto;
+flex-wrap:wrap;
 gap:15px;
 padding:10px;
 justify-content:center;
 }
 
 .galeria img{
-width:250px;
+width:100%;
+max-width:250px;
 height:250px;
 object-fit:cover;
 border-radius:12px;
