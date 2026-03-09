@@ -438,27 +438,35 @@ const imagenGrande = document.getElementById("imagen-grande");
 const cerrar = document.getElementById("cerrar");
 
 imagenes.forEach(img => {
-  img.addEventListener("click", () => {
+
+  function abrirImagen(){
     lightbox.style.display = "flex";
     imagenGrande.src = img.src;
-  });
+  }
+
+  img.addEventListener("click", abrirImagen);
+  img.addEventListener("touchstart", abrirImagen);
+
 });
 
-cerrar.addEventListener("click", () => {
+function cerrarLightbox(){
   lightbox.style.display = "none";
-});
+}
 
-lightbox.addEventListener("click", (e) => {
+cerrar.addEventListener("click", cerrarLightbox);
+cerrar.addEventListener("touchstart", cerrarLightbox);
+
+lightbox.addEventListener("click", function(e){
   if(e.target !== imagenGrande){
-    lightbox.style.display = "none";
+    cerrarLightbox();
   }
 });
 
 </script>
-
   
 </body>
 </html>
+
 
 
 
