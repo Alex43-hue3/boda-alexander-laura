@@ -163,14 +163,15 @@ font-size:16px;
 
 .galeria{
 display:flex;
-overflow-x:auto;
+flex-wrap:wrap;
 gap:15px;
 padding:10px;
 justify-content:center;
 }
 
 .galeria img{
-width:250px;
+width:100%;
+max-width:250px;
 height:250px;
 object-fit:cover;
 border-radius:12px;
@@ -466,6 +467,7 @@ lightbox.addEventListener("click", function(e){
   
 </body>
 </html>
+
 
 
 
