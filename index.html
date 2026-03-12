@@ -166,6 +166,31 @@ color:#f5e6c8;
 text-shadow:0 4px 15px rgba(0,0,0,0.7);
 }
 
+    /* FECHA LINEA */
+.fecha-linea{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.fecha-linea::before,
+.fecha-linea::after{
+content:"";
+flex:1;
+height:1px;
+background:rgba(255,255,255,0.6);
+max-width:120px;
+}
+
+.fecha-linea span{
+font-size:30px;
+color:#f5e6c8;
+letter-spacing:3px;
+font-weight:500;
+text-shadow:0 4px 15px rgba(0,0,0,0.7);
+}
 /* GALERIA */
 
 .galeria{
@@ -280,8 +305,9 @@ transform:translateY(110vh) rotate(360deg);
 <h2>Nos Casamos</h2>
 <h1>Alexander & Laura</h1>
 
-<p class="fecha">5 de Septiembre 2026</p>
-
+<div class="fecha-linea">
+<span>5 de Septiembre 2026</span>
+</div>
 <div id="contador"></div>
 
 </section>
@@ -511,6 +537,7 @@ lightbox.addEventListener("click", function(e){
   
 </body>
 </html>
+
 
 
 
